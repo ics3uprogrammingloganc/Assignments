@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment2-FallingObjectsLoganC", "Assignment2-FallingObjectsLoganC\Assignment2-FallingObjectsLoganC.csproj", "{FE4E8F2E-9260-48A8-8FBF-A38B5851BE8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE4E8F2E-9260-48A8-8FBF-A38B5851BE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4E8F2E-9260-48A8-8FBF-A38B5851BE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4E8F2E-9260-48A8-8FBF-A38B5851BE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4E8F2E-9260-48A8-8FBF-A38B5851BE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9F54705-2BF0-44BF-BAAD-9A5776EE5FA0}
+	EndGlobalSection
+EndGlobal
