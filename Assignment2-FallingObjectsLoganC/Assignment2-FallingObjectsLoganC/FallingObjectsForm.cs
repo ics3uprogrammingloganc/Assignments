@@ -47,12 +47,18 @@ namespace Assignment2_FallingObjectsLoganC
         // Animates falling ball
         void ballAnimate(int yFinalPos)
         {
+            // Setting the ball to the original position
             int yCurrentPos = 52;
+
+            // Loop that lowers the ball until it reaches it's final destination
             while (yCurrentPos < yFinalPos)
             {
+                // get rid of the previous ball on the screen and wait 30 ms
                 this.Refresh();
                 Thread.Sleep(30);
                 
+                // Lower the ball's position by creating a new point 5 pixels lower than the previous height
+                // and assigning it to the ball's location.
                 yCurrentPos += 5;
                 Point ballPos = new Point(500, yCurrentPos);
                 pbxBall.Location = ballPos;
@@ -71,6 +77,10 @@ namespace Assignment2_FallingObjectsLoganC
                 // Collecting user's input from the textbox
                 input = Convert.ToDouble(tbxInput.Text);
 
+                // Throwing an error if the input is negative ( can't have a negative time )
+                if (input < 0)
+                    throw new IndexOutOfRangeException();
+
                 // Calculating the user's answer, and if it's negative setting it to zero
                 answer = 100 - 0.5 * GRAVITY * Math.Pow(input, 2);
                 if (answer < 0)
@@ -86,6 +96,11 @@ namespace Assignment2_FallingObjectsLoganC
 
                 ballAnimate(newBallY);
                 
+            }
+            // Negative input error handling, notifying the user their number must be positive
+            catch (IndexOutOfRangeException)
+            {
+                lblAnswer.Text = "Your answer can't be negative. Try again.";
             }
             // Error was thrown, notifying the user that their input was invalid
             catch (Exception)
