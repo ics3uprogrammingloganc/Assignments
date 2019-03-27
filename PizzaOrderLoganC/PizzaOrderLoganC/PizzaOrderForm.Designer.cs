@@ -45,12 +45,15 @@
             this.tbxSubtotal = new System.Windows.Forms.TextBox();
             this.tbxTotal = new System.Windows.Forms.TextBox();
             this.gbxPizza = new System.Windows.Forms.GroupBox();
+            this.btnSavePizza = new System.Windows.Forms.Button();
+            this.tbxReceipt = new System.Windows.Forms.TextBox();
             this.gbxPizza.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSize
             // 
             this.lblSize.AutoSize = true;
+            this.lblSize.Enabled = false;
             this.lblSize.Location = new System.Drawing.Point(111, 20);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(30, 13);
@@ -71,64 +74,70 @@
             // chkPepperoni
             // 
             this.chkPepperoni.AutoSize = true;
-            this.chkPepperoni.Location = new System.Drawing.Point(299, 107);
+            this.chkPepperoni.Location = new System.Drawing.Point(176, 124);
             this.chkPepperoni.Name = "chkPepperoni";
             this.chkPepperoni.Size = new System.Drawing.Size(74, 17);
             this.chkPepperoni.TabIndex = 4;
             this.chkPepperoni.Tag = "pizza";
             this.chkPepperoni.Text = "Pepperoni";
             this.chkPepperoni.UseVisualStyleBackColor = true;
+            this.chkPepperoni.CheckedChanged += new System.EventHandler(this.chkPepperoni_CheckedChanged);
             // 
             // chkOlives
             // 
             this.chkOlives.AutoSize = true;
-            this.chkOlives.Location = new System.Drawing.Point(299, 131);
+            this.chkOlives.Location = new System.Drawing.Point(176, 148);
             this.chkOlives.Name = "chkOlives";
             this.chkOlives.Size = new System.Drawing.Size(55, 17);
             this.chkOlives.TabIndex = 5;
             this.chkOlives.Tag = "pizza";
             this.chkOlives.Text = "Olives";
             this.chkOlives.UseVisualStyleBackColor = true;
+            this.chkOlives.CheckedChanged += new System.EventHandler(this.chkOlives_CheckedChanged);
             // 
             // chkBacon
             // 
             this.chkBacon.AutoSize = true;
-            this.chkBacon.Location = new System.Drawing.Point(299, 155);
+            this.chkBacon.Location = new System.Drawing.Point(176, 172);
             this.chkBacon.Name = "chkBacon";
             this.chkBacon.Size = new System.Drawing.Size(57, 17);
             this.chkBacon.TabIndex = 6;
             this.chkBacon.Tag = "pizza";
             this.chkBacon.Text = "Bacon";
             this.chkBacon.UseVisualStyleBackColor = true;
+            this.chkBacon.CheckedChanged += new System.EventHandler(this.chkBacon_CheckedChanged);
             // 
             // chkPepper
             // 
             this.chkPepper.AutoSize = true;
-            this.chkPepper.Location = new System.Drawing.Point(299, 179);
+            this.chkPepper.Location = new System.Drawing.Point(176, 196);
             this.chkPepper.Name = "chkPepper";
             this.chkPepper.Size = new System.Drawing.Size(60, 17);
             this.chkPepper.TabIndex = 7;
             this.chkPepper.Tag = "pizza";
             this.chkPepper.Text = "Pepper";
             this.chkPepper.UseVisualStyleBackColor = true;
+            this.chkPepper.CheckedChanged += new System.EventHandler(this.chkPepper_CheckedChanged);
             // 
             // btnAddPizza
             // 
-            this.btnAddPizza.Location = new System.Drawing.Point(388, 22);
+            this.btnAddPizza.Location = new System.Drawing.Point(265, 39);
             this.btnAddPizza.Name = "btnAddPizza";
             this.btnAddPizza.Size = new System.Drawing.Size(75, 23);
             this.btnAddPizza.TabIndex = 8;
             this.btnAddPizza.Text = "Add Pizza";
             this.btnAddPizza.UseVisualStyleBackColor = true;
+            this.btnAddPizza.Click += new System.EventHandler(this.btnAddPizza_Click);
             // 
             // btnRemovePizza
             // 
-            this.btnRemovePizza.Location = new System.Drawing.Point(469, 22);
+            this.btnRemovePizza.Location = new System.Drawing.Point(346, 39);
             this.btnRemovePizza.Name = "btnRemovePizza";
             this.btnRemovePizza.Size = new System.Drawing.Size(85, 23);
             this.btnRemovePizza.TabIndex = 9;
             this.btnRemovePizza.Text = "Remove Pizza";
             this.btnRemovePizza.UseVisualStyleBackColor = true;
+            this.btnRemovePizza.Click += new System.EventHandler(this.btnRemovePizza_Click);
             // 
             // lblPizzaCost
             // 
@@ -153,30 +162,32 @@
             // 
             this.cmbPizza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPizza.FormattingEnabled = true;
-            this.cmbPizza.Location = new System.Drawing.Point(152, 24);
+            this.cmbPizza.Location = new System.Drawing.Point(29, 41);
             this.cmbPizza.Name = "cmbPizza";
             this.cmbPizza.Size = new System.Drawing.Size(121, 21);
             this.cmbPizza.TabIndex = 12;
+            this.cmbPizza.SelectedIndexChanged += new System.EventHandler(this.cmbPizza_SelectedIndexChanged);
             // 
             // cmbSize
             // 
             this.cmbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSize.FormattingEnabled = true;
             this.cmbSize.Items.AddRange(new object[] {
-            "Medium",
+            "Meduim",
             "Large",
             "Extra Large"});
-            this.cmbSize.Location = new System.Drawing.Point(299, 72);
+            this.cmbSize.Location = new System.Drawing.Point(176, 89);
             this.cmbSize.Name = "cmbSize";
             this.cmbSize.Size = new System.Drawing.Size(121, 21);
             this.cmbSize.TabIndex = 13;
             this.cmbSize.Tag = "pizza";
+            this.cmbSize.SelectedIndexChanged += new System.EventHandler(this.cmbSize_SelectedIndexChanged);
             // 
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal.Location = new System.Drawing.Point(235, 303);
+            this.lblSubtotal.Location = new System.Drawing.Point(112, 320);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(58, 13);
             this.lblSubtotal.TabIndex = 14;
@@ -186,7 +197,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(253, 332);
+            this.lblTotal.Location = new System.Drawing.Point(130, 349);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(40, 13);
             this.lblTotal.TabIndex = 15;
@@ -194,39 +205,58 @@
             // 
             // tbxSubtotal
             // 
-            this.tbxSubtotal.Location = new System.Drawing.Point(299, 300);
+            this.tbxSubtotal.Location = new System.Drawing.Point(176, 317);
             this.tbxSubtotal.Name = "tbxSubtotal";
             this.tbxSubtotal.ReadOnly = true;
             this.tbxSubtotal.Size = new System.Drawing.Size(100, 20);
             this.tbxSubtotal.TabIndex = 16;
-            this.tbxSubtotal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tbxTotal
             // 
-            this.tbxTotal.Location = new System.Drawing.Point(299, 329);
+            this.tbxTotal.Location = new System.Drawing.Point(176, 346);
             this.tbxTotal.Name = "tbxTotal";
             this.tbxTotal.ReadOnly = true;
             this.tbxTotal.Size = new System.Drawing.Size(100, 20);
             this.tbxTotal.TabIndex = 17;
+            this.tbxTotal.TextChanged += new System.EventHandler(this.tbxTotal_TextChanged);
             // 
             // gbxPizza
             // 
+            this.gbxPizza.Controls.Add(this.btnSavePizza);
             this.gbxPizza.Controls.Add(this.tbxPizzaCost);
             this.gbxPizza.Controls.Add(this.lblPizzaCost);
             this.gbxPizza.Controls.Add(this.lblToppings);
             this.gbxPizza.Controls.Add(this.lblSize);
-            this.gbxPizza.Location = new System.Drawing.Point(152, 55);
+            this.gbxPizza.Location = new System.Drawing.Point(29, 72);
             this.gbxPizza.Name = "gbxPizza";
-            this.gbxPizza.Size = new System.Drawing.Size(402, 224);
+            this.gbxPizza.Size = new System.Drawing.Size(402, 239);
             this.gbxPizza.TabIndex = 18;
             this.gbxPizza.TabStop = false;
             this.gbxPizza.Tag = "Pizza";
+            // 
+            // btnSavePizza
+            // 
+            this.btnSavePizza.Location = new System.Drawing.Point(148, 200);
+            this.btnSavePizza.Name = "btnSavePizza";
+            this.btnSavePizza.Size = new System.Drawing.Size(75, 23);
+            this.btnSavePizza.TabIndex = 12;
+            this.btnSavePizza.Text = "Save";
+            this.btnSavePizza.UseVisualStyleBackColor = true;
+            // 
+            // tbxReceipt
+            // 
+            this.tbxReceipt.Location = new System.Drawing.Point(477, 41);
+            this.tbxReceipt.Multiline = true;
+            this.tbxReceipt.Name = "tbxReceipt";
+            this.tbxReceipt.Size = new System.Drawing.Size(240, 364);
+            this.tbxReceipt.TabIndex = 19;
             // 
             // frmPizzaOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 453);
+            this.Controls.Add(this.tbxReceipt);
             this.Controls.Add(this.tbxTotal);
             this.Controls.Add(this.tbxSubtotal);
             this.Controls.Add(this.lblTotal);
@@ -267,6 +297,8 @@
         private System.Windows.Forms.TextBox tbxSubtotal;
         private System.Windows.Forms.TextBox tbxTotal;
         private System.Windows.Forms.GroupBox gbxPizza;
+        private System.Windows.Forms.TextBox tbxReceipt;
+        private System.Windows.Forms.Button btnSavePizza;
     }
 }
 
