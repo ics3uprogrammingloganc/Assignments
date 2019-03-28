@@ -1,19 +1,10 @@
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe.config
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.pdb
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csprojResolveAssemblyReference.cache
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.frmPizzaOrder.resources
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.Properties.Resources.resources
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csproj.GenerateResource.Cache
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.exe
-N:\StuShare\Semester 2 - Winter 2019\ICS3U Programming\Cantin, Logan (s299128)\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.pdb
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe.config
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.pdb
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csprojAssemblyReference.cache
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.Properties.Resources.resources
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csproj.GenerateResource.cache
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csproj.CoreCompileInputs.cache
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.exe
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.pdb
-C:\Users\Logan\Desktop\Apps\GitHub\Assignments\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.frmPizzaOrder.resources
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe.config
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.exe
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\bin\Debug\PizzaOrderLoganC.pdb
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csprojAssemblyReference.cache
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.frmPizzaOrder.resources
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.Properties.Resources.resources
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csproj.GenerateResource.cache
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.csproj.CoreCompileInputs.cache
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.exe
+C:\Users\Logan\source\repos\PizzaOrderLoganC\PizzaOrderLoganC\obj\Debug\PizzaOrderLoganC.pdb
