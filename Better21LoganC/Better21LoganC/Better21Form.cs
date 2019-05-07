@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Better21LoganC
 {
-    public partial class Form1 : Form
+    public partial class frmBetter21 : Form
     {
-        public Form1()
+        public frmBetter21()
         {
             InitializeComponent();
         }
