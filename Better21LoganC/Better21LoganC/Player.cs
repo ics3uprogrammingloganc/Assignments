@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Better21LoganC
 {
-    class Player
+    abstract class Player
     {
+        private List<Card> hand = new List<Card>();
+        private int _score = 0;
+
+        abstract public void StartTurn();
+        public int Score
+        {
+            get
+            {
+                return _score;
+            }           
+        }
     }
 }

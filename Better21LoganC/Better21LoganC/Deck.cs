@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Resources;
+using System.IO;
 
 namespace Better21LoganC
 {
@@ -14,42 +15,66 @@ namespace Better21LoganC
         public Image cardImage;
         public int numericalValue;
         public char suit;
+        public Image backImage;
 
         public Card(Image img, int number, char suitChar)
         {
             cardImage = img;
             numericalValue = number;
             suit = suitChar;
+            backImage = new Bitmap(@"Cards\purple_back.png");
         }
     }
 
     class Deck
     {
-        private Queue cards;
-        private List<Card> discard;
+        private Queue cards = new Queue();
+        private List<Card> discard = new List<Card>();
         private Random randGen = new Random();
-        private enum Suits
-        {
-            CLUB, HEART, SPADE, DIAMOND
-        }
         
-        Card 
+        Image GetCardImage(char suit, int number)
+        {
+            string path = @"Cards\";
+            Image img;
+
+            if (number == 11)
+            {
+                path += "J";
+            }
+            else if (number == 12)
+            {
+                path += "Q";
+            }
+            else if (number == 13)
+            {
+                path += "K";
+            }
+            else
+            {
+                path += Convert.ToString(number);
+            }
+            path += Convert.ToString(suit) + ".png";
+
+            img = new Bitmap(path);
+
+            return img;
+        }
 
         public Deck()
         {
-            for (int suitNumber = 0; suitNumber < 4; suitNumber++)
+            foreach (char suit in "SHDC")
             {
-                Suits suit = (Suits)suitNumber;
-
                 for (int numberValue = 1; numberValue <= 13; numberValue++)
                 {
-                   
+                    Image cardImage = GetCardImage(suit, numberValue);
 
-                    
+                    Card newCard = new Card(cardImage, numberValue, suit);
 
-
+                    discard.Add(newCard);
                 }
             }
+
+            ShuffleCards();
         }
 
         public Card DealCard()

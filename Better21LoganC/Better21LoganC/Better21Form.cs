@@ -15,6 +15,22 @@ namespace Better21LoganC
         public frmBetter21()
         {
             InitializeComponent();
+            this.pbxTest.Image = GetCardImage('C', 2);
         }
+
+        Image GetCardImage(char suit, int number)
+        {
+            string path = @"Cards\";
+
+            Image img;
+
+            path += Convert.ToString(number) + Convert.ToString(suit) + ".png";
+
+            img = new Bitmap(path);
+
+            return img;
+        }
+
+
     }
 }
