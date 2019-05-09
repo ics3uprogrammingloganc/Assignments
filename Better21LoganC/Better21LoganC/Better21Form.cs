@@ -12,6 +12,8 @@ namespace Better21LoganC
 {
     public partial class frmBetter21 : Form
     {
+        public Deck deck = new Deck();
+
         public frmBetter21()
         {
             InitializeComponent();
@@ -31,6 +33,14 @@ namespace Better21LoganC
             return img;
         }
 
+        public void CreateDealerUI()
+        {
+            lblDealer.Show();
+        }
 
+        public void AddCard(Card Player, Player player)
+        {
+
+        }
     }
 }

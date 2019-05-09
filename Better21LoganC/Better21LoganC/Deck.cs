@@ -17,6 +17,8 @@ namespace Better21LoganC
         public char suit;
         public Image backImage;
 
+        public static Size cardSize = new Size(20, 50);
+
         public Card(Image img, int number, char suitChar)
         {
             cardImage = img;
@@ -26,12 +28,29 @@ namespace Better21LoganC
         }
     }
 
-    class Deck
+    public class Deck
     {
         private Queue cards = new Queue();
         private List<Card> discard = new List<Card>();
         private Random randGen = new Random();
-        
+
+        public Deck()
+        {
+            foreach (char suit in "SHDC")
+            {
+                for (int numberValue = 1; numberValue <= 13; numberValue++)
+                {
+                    Image cardImage = GetCardImage(suit, numberValue);
+
+                    Card newCard = new Card(cardImage, numberValue, suit);
+
+                    discard.Add(newCard);
+                }
+            }
+
+            ShuffleCards();
+        }
+
         Image GetCardImage(char suit, int number)
         {
             string path = @"Cards\";
@@ -58,23 +77,6 @@ namespace Better21LoganC
             img = new Bitmap(path);
 
             return img;
-        }
-
-        public Deck()
-        {
-            foreach (char suit in "SHDC")
-            {
-                for (int numberValue = 1; numberValue <= 13; numberValue++)
-                {
-                    Image cardImage = GetCardImage(suit, numberValue);
-
-                    Card newCard = new Card(cardImage, numberValue, suit);
-
-                    discard.Add(newCard);
-                }
-            }
-
-            ShuffleCards();
         }
 
         public Card DealCard()

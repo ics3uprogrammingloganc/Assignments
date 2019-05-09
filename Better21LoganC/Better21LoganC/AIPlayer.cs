@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Better21LoganC
 {
-    class AIPlayer
+    public class AIPlayer
     {
     }
 }

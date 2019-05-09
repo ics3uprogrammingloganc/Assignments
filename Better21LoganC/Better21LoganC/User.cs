@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Better21LoganC
 {
-    class User
+    public class User
     {
     }
 }
