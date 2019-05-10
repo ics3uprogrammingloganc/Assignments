@@ -89,7 +89,7 @@ namespace Better21LoganC
         {
             sumLabel = new Label();
             sumLabel.Text = "Sum: 0";
-            sumLabel.Location = new Point(master.Width / 2, master.Height / 2);
+            sumLabel.Location = new Point(master.Width / 2, master.Height / 4);
             master.Controls.Add(sumLabel);
         }
     }

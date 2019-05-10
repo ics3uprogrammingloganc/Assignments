@@ -25,11 +25,6 @@ namespace Better21LoganC
             user = new User(ref deck, this);
         }
 
-        public void AddCard(Card Player, Player player)
-        {
-
-        }
-
         private void BtnStart_Click(object sender, EventArgs e)
         {
             dealer.StartTurn();

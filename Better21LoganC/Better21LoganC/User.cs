@@ -12,6 +12,7 @@ namespace Better21LoganC
     public class User : Player
     {
         private Label sumLabel;
+        private Button hitButton;
         private int sum;
         private List<Card> hand = new List<Card>();
         Deck deck;
@@ -27,7 +28,7 @@ namespace Better21LoganC
             deck = d;
             master = m;
 
-            CreateDealerUI();
+            CreateUserUI();
         }
 
         private void UpdateDisplay()
@@ -84,12 +85,23 @@ namespace Better21LoganC
             }
         }
 
-        private void CreateDealerUI()
+        private void HitEvent(object sender, EventArgs e)
+        {
+            Console.WriteLine("Hit");
+        }
+
+        private void CreateUserUI()
         {
             sumLabel = new Label();
-            sumLabel.Text = "Sum: 0";
+            sumLabel.Text = "User Sum: 0";
             sumLabel.Location = new Point(master.Width / 2, master.Height / 2);
             master.Controls.Add(sumLabel);
+
+            hitButton = new Button();
+            hitButton.Text = "Hit";
+            hitButton.Location = new Point(273, 364);
+            hitButton.Click += new EventHandler(HitEvent);
+            master.Controls.Add(hitButton);
         }
 
     }
