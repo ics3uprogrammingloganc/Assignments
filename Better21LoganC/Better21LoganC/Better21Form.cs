@@ -13,34 +13,27 @@ namespace Better21LoganC
     public partial class frmBetter21 : Form
     {
         public Deck deck = new Deck();
+        private Dealer dealer;
+        private User user;
 
         public frmBetter21()
         {
             InitializeComponent();
-            this.pbxTest.Image = GetCardImage('C', 2);
-        }
 
-        Image GetCardImage(char suit, int number)
-        {
-            string path = @"Cards\";
 
-            Image img;
-
-            path += Convert.ToString(number) + Convert.ToString(suit) + ".png";
-
-            img = new Bitmap(path);
-
-            return img;
-        }
-
-        public void CreateDealerUI()
-        {
-            lblDealer.Show();
+            dealer = new Dealer(ref deck, this);
+            user = new User(ref deck, this);
         }
 
         public void AddCard(Card Player, Player player)
         {
 
+        }
+
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            dealer.StartTurn();
+            user.StartTurn();
         }
     }
 }

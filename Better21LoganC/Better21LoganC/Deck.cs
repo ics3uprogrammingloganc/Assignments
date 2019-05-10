@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Resources;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Better21LoganC
 {
@@ -17,12 +18,12 @@ namespace Better21LoganC
         public char suit;
         public Image backImage;
 
-        public static Size cardSize = new Size(20, 50);
+        public static Size cardSize = new Size(70, 100);
 
         public Card(Image img, int number, char suitChar)
         {
             cardImage = img;
-            numericalValue = number;
+            numericalValue = (number < 10) ? number : 10;
             suit = suitChar;
             backImage = new Bitmap(@"Cards\purple_back.png");
         }
@@ -53,26 +54,30 @@ namespace Better21LoganC
 
         Image GetCardImage(char suit, int number)
         {
-            string path = @"Cards\";
+            string path;
             Image img;
 
             if (number == 11)
             {
-                path += "J";
+                path = @"Cards\J";
             }
             else if (number == 12)
             {
-                path += "Q";
+                path = @"Cards\Q";
             }
             else if (number == 13)
             {
-                path += "K";
+                path = @"Cards\K";
+            }
+            else if (number == 1)
+            {
+                path = @"Cards\A";
             }
             else
             {
-                path += Convert.ToString(number);
+                path = @"Cards\" + Convert.ToString(number);
             }
-            path += Convert.ToString(suit) + ".png";
+            path += Convert.ToString(suit) + @".png";
 
             img = new Bitmap(path);
 
@@ -91,12 +96,19 @@ namespace Better21LoganC
 
         private void ShuffleCards()
         {
+            MessageBox.Show("Shuffling");
+
             for (int numDiscard = discard.Count; numDiscard > 0; numDiscard--)
             {
                 int rand = randGen.Next(0, numDiscard);
 
                 cards.Enqueue(discard[rand]);
                 discard.RemoveAt(rand);
+            }
+
+            foreach (Card card in cards)
+            {
+                Console.WriteLine(card.numericalValue);
             }
         }
 
