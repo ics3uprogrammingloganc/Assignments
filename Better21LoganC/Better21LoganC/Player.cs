@@ -10,6 +10,8 @@ namespace Better21LoganC
 {
     public abstract class Player
     {
+        /* VARIABLES */
+
         // Card related stuff
         protected List<Card> hand = new List<Card>();
         protected Deck deck;
@@ -32,8 +34,11 @@ namespace Better21LoganC
         protected List<PictureBox> picBoxes = new List<PictureBox>();
         protected frmBetter21 master;
 
+        /* CONSTRUCTOR */
+        // Takes reference to deck and form.
         public Player(ref Deck d, ref frmBetter21 m)
         {
+            // Sets the deck and master to the 
             deck = d;
             master = m;
 

@@ -12,7 +12,7 @@ namespace Better21LoganC
 {
     public class Dealer : Player
     {
-        /* Constructor */
+        /* CO */
         public Dealer(ref Deck d, frmBetter21 m) : base(ref d, ref m)
         {
             name = "Dealer";
