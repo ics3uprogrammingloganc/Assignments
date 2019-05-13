@@ -12,85 +12,46 @@ namespace Better21LoganC
 {
     public class Dealer : Player
     {
-        private Label sumLabel;
-        private int sum;
-        private List<Card> hand = new List<Card>();
-        Deck deck;
-        frmBetter21 master;
-        List<PictureBox> picBoxes= new List<PictureBox>();
-
-
-        const int spacing = 85;
-
-
-        public Dealer(ref Deck d, frmBetter21 m)
+        /* Constructor */
+        public Dealer(ref Deck d, frmBetter21 m) : base(ref d, ref m)
         {
-            deck = d;
-            master = m;
+            name = "Dealer";
 
-            CreateDealerUI();
+            handPosition = 50;
+
+            UIx = 700;
+            UIy = 186;
+
+            CreateUI();
         }
 
-        private void UpdateDisplay()
+        /* Override Functions */
+
+        public async override void StartTurn()
         {
-            int numCards = hand.Count();
+            EnableControls(true);
 
-            Card newCard = hand.Last();
-            PictureBox newPicBox = new PictureBox();
-            newPicBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            newPicBox.ClientSize = Card.cardSize;
-            newPicBox.Image = newCard.cardImage;
-
-            sumLabel.Text = "Sum: " + Convert.ToString(sum);
-
-            picBoxes.Add(newPicBox);
-
-            master.Controls.Add(newPicBox);
-
-            int center = master.Width / 2;
-            int startPosition = center - (spacing * numCards / 2);
-            
-            foreach (PictureBox pbx in picBoxes)
-            {
-                pbx.Location = new Point(startPosition, 20);
-
-                startPosition += spacing;
-            }
-
-            master.Refresh();
-        }
-
-        private void Hit()
-        {
-            Card newCard = deck.DealCard();
-
-            Console.WriteLine("Hit: " + Convert.ToString(newCard.numericalValue));
-
-            sum += newCard.numericalValue;
-
-            hand.Add(newCard);
-
-            UpdateDisplay();
-        }
-
-        public override void StartTurn()
-        {
-            Hit();
-            Hit();
+            await Sleep.sleep(5000);
 
             while (sum < 16)
             {
-                Thread.Sleep(1000);
-                Hit();
+                await Sleep.sleep(500);
+                Hit(true);
             }
+
+            EndTurn();
         }
 
-        private void CreateDealerUI()
+        public override void NewRound(int buyIn)
         {
-            sumLabel = new Label();
-            sumLabel.Text = "Sum: 0";
-            sumLabel.Location = new Point(master.Width / 2, master.Height / 4);
-            master.Controls.Add(sumLabel);
+            base.NewRound(buyIn);
+
+            Hit(true);
+            Hit(true);
+
+            EnableControls(false);
+
+            lblSum.Hide();
         }
     }
 }

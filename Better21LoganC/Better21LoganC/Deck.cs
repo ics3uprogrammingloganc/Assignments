@@ -16,7 +16,7 @@ namespace Better21LoganC
         public Image cardImage;
         public int numericalValue;
         public char suit;
-        public Image backImage;
+        static public Image backImage = new Bitmap(@"Cards\purple_back.png");
 
         public static Size cardSize = new Size(70, 100);
 
@@ -25,7 +25,6 @@ namespace Better21LoganC
             cardImage = img;
             numericalValue = (number < 10) ? number : 10;
             suit = suitChar;
-            backImage = new Bitmap(@"Cards\purple_back.png");
         }
     }
 
@@ -105,16 +104,21 @@ namespace Better21LoganC
                 cards.Enqueue(discard[rand]);
                 discard.RemoveAt(rand);
             }
-
-            foreach (Card card in cards)
-            {
-                Console.WriteLine(card.numericalValue);
-            }
         }
 
         public void Discard(Card card)
         {
             discard.Add(card);
+        }
+
+        public int Peek()
+        {
+            //if (card == 0)
+            //{
+            //    ShuffleCards();
+            //}
+            Card topCard = (Card)cards.Peek();
+            return topCard.numericalValue;
         }
     }
 }

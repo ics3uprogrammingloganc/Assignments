@@ -11,98 +11,113 @@ namespace Better21LoganC
 {
     public class User : Player
     {
-        private Label sumLabel;
+        const int y = 550;
+
         private Button hitButton;
-        private int sum;
-        private List<Card> hand = new List<Card>();
-        Deck deck;
-        frmBetter21 master;
-        List<PictureBox> picBoxes = new List<PictureBox>();
+        private Button stayButton;
 
 
-        const int spacing = 85;
-
-
-        public User(ref Deck d, frmBetter21 m)
+        public User(ref Deck d, frmBetter21 m, string inputName) : base (ref d, ref m)
         {
-            deck = d;
-            master = m;
+            name = inputName;
 
-            CreateUserUI();
+            UIx = 700;
+            UIy = 400;
+
+            handPosition = 550;
+
+            CreateUI();
         }
 
-        private void UpdateDisplay()
+        protected override void CreateUI()
         {
-            int numCards = hand.Count();
+            base.CreateUI();
 
-            Card newCard = hand.Last();
-            PictureBox newPicBox = new PictureBox();
-            newPicBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            newPicBox.ClientSize = Card.cardSize;
-            newPicBox.Image = newCard.cardImage;
+            hitButton = new Button();
+            hitButton.Text = "Hit";
+            hitButton.Location = new Point(UIx - 13, UIy + 83);
+            hitButton.Click += new EventHandler(HitEvent);
+            hitButton.BackColor = Control.DefaultBackColor;
+            master.Controls.Add(hitButton);
 
-            sumLabel.Text = "Sum: " + Convert.ToString(sum);
+            stayButton = new Button();
+            stayButton.Text = "Stay";
+            stayButton.Location = new Point(UIx + 85, UIy + 83);
+            stayButton.Click += new EventHandler(StayEvent);
+            stayButton.BackColor = Control.DefaultBackColor;
+            master.Controls.Add(stayButton);
 
-            picBoxes.Add(newPicBox);
+            lblSum = new Label();
+            lblSum.AutoSize = true;
+            lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblSum.ForeColor = System.Drawing.Color.White;
+            lblSum.Location = new System.Drawing.Point(UIx + 150, UIy + 45);
+            lblSum.Name = "lblSum";
+            lblSum.Size = new System.Drawing.Size(86, 25);
+            lblSum.TabIndex = 6;
+            lblSum.Text = "Sum: 15";
+            master.Controls.Add(lblSum);
 
-            master.Controls.Add(newPicBox);
+            lblMoney.Location = new System.Drawing.Point(UIx - 150, UIy + 45);
 
-            int center = master.Width / 2;
-            int startPosition = center - (spacing * numCards / 2);
+            stayButton.Enabled = false;
+            hitButton.Enabled = false;
 
-            foreach (PictureBox pbx in picBoxes)
-            {
-                pbx.Location = new Point(startPosition, Convert.ToInt32(master.Height*0.7));
-
-                startPosition += spacing;
-            }
-
-            master.Refresh();
+            Console.WriteLine(lblSum.Location);
         }
 
-        private void Hit()
+        public override void NewRound(int buyin)
         {
-            Card newCard = deck.DealCard();
+            base.NewRound(buyin);
 
-            Console.WriteLine("Hit: " + Convert.ToString(newCard.numericalValue));
+            Hit();
+            Hit();
 
-            sum += newCard.numericalValue;
-
-            hand.Add(newCard);
-
-            UpdateDisplay();
+            EnableControls(false);
         }
 
         public override void StartTurn()
         {
-            Hit();
-            Hit();
+            base.StartTurn();
 
-            while (sum < 16)
-            {
-                Thread.Sleep(1000);
-                Hit();
-            }
+            // Enable the buttons
+            stayButton.Enabled = true;
+            hitButton.Enabled = true;
+        }
+        
+        // Signifies the end of the turn
+        protected override void EndTurn()
+        {
+            // Disable the buttons
+            stayButton.Enabled = false;
+            hitButton.Enabled = false;
+
+            base.EndTurn();
         }
 
+        // Handles the hit button press
         private void HitEvent(object sender, EventArgs e)
         {
-            Console.WriteLine("Hit");
+            Hit();
+
+            if (sum > 21)
+            {
+                Console.WriteLine("bust");
+                EndTurn();
+            }
+            else if (sum == 21)
+            {
+                Console.WriteLine("blackjack");
+                EndTurn();
+            }
+            
         }
 
-        private void CreateUserUI()
+        // Handles the stay button press
+        private void StayEvent(object sender, EventArgs e)
         {
-            sumLabel = new Label();
-            sumLabel.Text = "User Sum: 0";
-            sumLabel.Location = new Point(master.Width / 2, master.Height / 2);
-            master.Controls.Add(sumLabel);
-
-            hitButton = new Button();
-            hitButton.Text = "Hit";
-            hitButton.Location = new Point(273, 364);
-            hitButton.Click += new EventHandler(HitEvent);
-            master.Controls.Add(hitButton);
+            Console.WriteLine("Stay");
+            EndTurn();
         }
-
     }
 }

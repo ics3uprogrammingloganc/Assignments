@@ -55,8 +55,10 @@
     <Compile Include="Better21.cs" />
     <Compile Include="Dealer.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="ImageFilter.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sleep.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Better21Form.resx">
       <DependentUpon>Better21Form.cs</DependentUpon>
