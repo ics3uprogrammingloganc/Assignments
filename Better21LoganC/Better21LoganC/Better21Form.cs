@@ -20,15 +20,9 @@ namespace Better21LoganC
         private Player currentPlayer;
         private int buyinCost = 50;
 
-        // Setup UI items
-        private TextBox username;
-
         public frmBetter21()
         {
             InitializeComponent();
-
-
-            //StartGame();
         }
 
         private void StartGame()
@@ -150,16 +144,6 @@ namespace Better21LoganC
             Application.Exit();
         }
 
-        private void Setup()
-        {
-
-        }
-
-        private void SetupUI()
-        {
-
-        }
-
         private void ChkAI1_CheckedChanged(object sender, EventArgs e)
         {
             bool chkd = chkAI1.Checked;
@@ -187,8 +171,6 @@ namespace Better21LoganC
                 grbSetup.Hide();
 
                 StartGame();
-
-                grbSetup.Dispose();
             }
         }
     }

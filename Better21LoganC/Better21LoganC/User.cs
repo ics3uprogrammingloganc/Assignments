@@ -11,8 +11,6 @@ namespace Better21LoganC
 {
     public class User : Player
     {
-        const int y = 550;
-
         private Button hitButton;
         private Button stayButton;
 

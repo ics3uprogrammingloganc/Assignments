@@ -31,7 +31,7 @@ namespace Better21LoganC
         {
             EnableControls(true);
 
-            await Sleep.sleep(5000);
+            await Sleep.sleep(1000);
 
             while (sum < 16)
             {
