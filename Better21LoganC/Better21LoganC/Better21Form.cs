@@ -12,6 +12,7 @@ namespace Better21LoganC
 {
     public partial class frmBetter21 : Form
     {
+        // Variables
         public Deck deck;
         private Dealer dealer;
         private User user;
@@ -20,70 +21,82 @@ namespace Better21LoganC
         private Player currentPlayer;
         private int buyinCost = 50;
 
+        // Constructor
         public frmBetter21()
         {
             InitializeComponent();
         }
 
+        // Starts game
         private void StartGame()
         {
+            // Creates a new deck, dealer, and user
             deck = new Deck();
             dealer = new Dealer(ref deck, this);
             user = new User(ref deck, this, tbxUsername.Text);
             
 
+            // Add dealer at the end
             players.AddLast(dealer);
 
+            // Add UI2 if playing with it
             if (chkAI2.Checked)
             {
                 players.AddFirst(new AIPlayer(ref deck, this, cmbDifficulty2.SelectedIndex, 2, tbxAI2name.Text));
             }
-                
+            
+            // Add User
             players.AddFirst(user);
 
+            // Add UI1 if playing with it
             if (chkAI1.Checked)
             {
                 players.AddFirst(new AIPlayer(ref deck, this, cmbDifficulty1.SelectedIndex, 1, tbxAIName1.Text));
             }
 
+            // Start the first round
             StartRound();
         }
 
         private void StartRound()
         {
+            // Create an enumerator for the players
             playerEnumerator = players.GetEnumerator();
 
+            // Call the new round function on each player
             foreach (Player player in players)
             {
                 player.NewRound(buyinCost);
             }
 
+            // Move enumerator to the first player. set the current player. start their turn.
             playerEnumerator.MoveNext();
             currentPlayer = playerEnumerator.Current;
             currentPlayer.StartTurn();
         }
 
+        // Ends round
         private void EndRound()
         {
+            // Determines the player with the most points
             int topPoints = 0;
             List<Player> topPlayers = new List<Player>();
 
             foreach (Player p in players)
             {
-                Console.WriteLine(string.Format("{0}: {1}", p.name, p.Sum));
-
-                if (p.Sum > topPoints)
+                if (p.Sum > topPoints) // Player has more points than the previous top player
                 {
-                    topPlayers.Clear();
-                    topPlayers.Add(p);
-                    topPoints = p.Sum;
+                    topPlayers.Clear(); // Clear the top players list (because the old ones have been beaten
+                    topPlayers.Add(p); // Add the current player to the list
+                    topPoints = p.Sum; // top points is equal to this player's points
                 }
-                else if (p.Sum == topPoints)
+                else if (p.Sum == topPoints) // Same number of points as the current top player (tie)
                 {
-                    topPlayers.Add(p);
+                    topPlayers.Add(p); // add the current player to the top players list
                 }
             }
 
+            // Tells us how many players there are in
             int numWinners = topPlayers.Count();
 
             if (numWinners == 0)
@@ -134,9 +147,24 @@ namespace Better21LoganC
 
         }
 
+        private void StopGameplay()
+        {
+            
+        }
+
         private void RestartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            StopGameplay();
+
+            chkAI1.Checked = false;
+            chkAI2.Checked = false;
+            tbxAI2name.Text = "";
+            tbxAIName1.Text = "";
+            tbxUsername.Text = "";
+            cmbDifficulty1.SelectedIndex = -1;
+            cmbDifficulty2.SelectedIndex = -1;
+
+            grbSetup.Show();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)

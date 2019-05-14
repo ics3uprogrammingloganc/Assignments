@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Better 21 game by Logan Cantin  
+// Image operations class
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,16 +31,20 @@ namespace Better21LoganC
 
         public static Image RotateImage(this Image inputImage)
         {
+            // Creating new bitmap
             Bitmap outputImage = new Bitmap(inputImage);
 
+            // Adding image to a new graphics canvas
             using (Graphics gfx = Graphics.FromImage(outputImage))
             {
                 gfx.Clear(Color.White);
                 gfx.DrawImage(inputImage, 0, 0, inputImage.Width, inputImage.Height);
             }
 
+            // rotate the image 90 degrees
             outputImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
+            // Return flipped image
             return outputImage;
         }
     }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿// better21 game by Logan Cantin
+// Dealer class
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +15,7 @@ namespace Better21LoganC
 {
     public class Dealer : Player
     {
-        /* CO */
+        /* CONSTRUCTOR */
         public Dealer(ref Deck d, frmBetter21 m) : base(ref d, ref m)
         {
             name = "Dealer";
